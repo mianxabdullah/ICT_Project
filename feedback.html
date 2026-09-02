@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback & Suggestions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">💻 Computer Generations</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="first.html">First</a>
+        <a href="sec.html">Second</a>
+        <a href="third.HTML">Third</a>
+        <a href="forth.html">Fourth</a>
+        <a href="fifth.html">Fifth</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="card">
+        <h1>Share Your Feedback</h1>
+        <p>We'd love to hear your thoughts! Your feedback helps us improve this educational resource.</p>
+
+        <form id="feedbackForm" style="max-width:600px;margin:0 auto;">
+          <fieldset style="border:none;padding:0;">
+            <div style="margin-bottom:20px;">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label>Gender</label>
+              <div style="margin-top:10px;">
+                <input type="radio" id="gender_m" name="gender" value="male">
+                <label for="gender_m" style="display:inline;margin-right:20px;font-weight:400;">Male</label>
+                <input type="radio" id="gender_f" name="gender" value="female">
+                <label for="gender_f" style="display:inline;margin-right:20px;font-weight:400;">Female</label>
+                <input type="radio" id="gender_o" name="gender" value="other">
+                <label for="gender_o" style="display:inline;font-weight:400;">Other</label>
+              </div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="date">Date *</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label>Education Level</label>
+              <div style="margin-top:10px;">
+                <input type="checkbox" id="edu_matric" name="education" value="matric">
+                <label for="edu_matric" style="display:inline;margin-right:20px;font-weight:400;">Matric</label>
+                <input type="checkbox" id="edu_fsc" name="education" value="fsc">
+                <label for="edu_fsc" style="display:inline;margin-right:20px;font-weight:400;">FSC</label>
+                <input type="checkbox" id="edu_bs" name="education" value="bs">
+                <label for="edu_bs" style="display:inline;font-weight:400;">Bachelor's</label>
+              </div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="batch">Batch Year *</label>
+              <select id="batch" name="batch" required>
+                <option value="">Select your batch</option>
+                <option>F21</option>
+                <option>F22</option>
+                <option>F23</option>
+                <option>F24</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="degree">Degree Program *</label>
+              <select id="degree" name="degree" required>
+                <option value="">Select your degree</option>
+                <option>Computer Science (CS)</option>
+                <option>Software Engineering (SE)</option>
+                <option>Data Science (DS)</option>
+                <option>Information Technology (IT)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:20px;">
+              <label for="comments">Additional Comments</label>
+              <textarea id="comments" name="comments" placeholder="Share your thoughts, suggestions, or feedback..."></textarea>
+            </div>
+
+            <button type="submit" class="primary">Submit Feedback</button>
+            <div id="message" style="margin-top:20px;display:none;padding:16px;background:#d4edda;color:#155724;border-radius:8px;"></div>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>Thank you for helping us improve!</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const date = document.getElementById('date').value;
+      const batch = document.getElementById('batch').value;
+      const degree = document.getElementById('degree').value;
+      
+      if (!name || !email || !date || !batch || !degree) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // Show success message
+      const message = document.getElementById('message');
+      message.textContent = '✓ Thank you for your feedback! We appreciate your input.';
+      message.style.display = 'block';
+      
+      // Reset form
+      this.reset();
+      
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        message.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
